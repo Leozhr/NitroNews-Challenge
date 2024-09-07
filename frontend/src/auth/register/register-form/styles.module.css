@@ -1,0 +1,40 @@
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.register-form-group {
+  position: relative;
+}
+
+.register-form-error, .register-form-info {
+  position: absolute;
+  font-size: 0.8rem;
+  margin: 0.1rem 0;
+}
+
+.register-form-error {
+  color: var(--error);
+}
+
+.register-form button {
+  margin-top: 1.8rem;
+}
+
+.register-form-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  animation: loader 1s linear infinite;
+}
+
+@keyframes loader {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
