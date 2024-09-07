@@ -22,7 +22,7 @@ export default function RegisterAccount() {
           <div className={Styles["register-hero-container"]}>
             <img src={storyset} alt="email marketing" />
             <div>
-              <h3 className={Styles["register-hero-title"]}>Simplifique o Email Marketing da sua Empresa</h3>
+              <h1 className={Styles["register-hero-title"]}>Simplifique o Email Marketing da sua Empresa</h1>
               <p className={Styles["register-hero-subtitle"]}>
                 Plataforma prática de email marketing que permite criar, automatizar e acompanhar campanhas de forma eficiente, 
                 ideal para empresas que buscam melhorar a comunicação com seus clientes.

@@ -56,6 +56,5 @@ main {
 }
 
 .register-hero-subtitle {
-  color: var(--white);
-  opacity: 0.8;
+  color: var(--text-tertiary)
 }
