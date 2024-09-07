@@ -1,0 +1,15 @@
+.button {
+  max-height: 50px;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
