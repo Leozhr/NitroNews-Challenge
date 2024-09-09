@@ -82,7 +82,7 @@ A validação é feita no front-end e há notificações para os seguintes casos
 **1. Clone o repositório:**
 
 ```bash
-git clone https://github.com/seu-repositorio/teste-nitronews.git
+git clone https://github.com/Leozhr/NitroNews-Challenge.git
 ```
 
 <br />
