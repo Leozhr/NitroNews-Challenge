@@ -1,81 +1,117 @@
-# Teste de proficiência técnica front-end - Nitronews
+# 🧪 Teste de Proficiência Técnica Front-End - Nitronews
 
-## Objetivo
+<br />
 
-Desenvolver uma mini-aplicação (layout e código) que interaja com um backend rodando em docker através de requisições HTTP.
+## 🎯 Objetivo
 
-## Instruções para execução do teste
+Desenvolver duas mini-aplicações idênticas que interajam com um backend rodando em Docker, através de requisições HTTP, implementadas da seguinte maneira:
+- **Aplicação 1:** Utilizando React.
+- **Aplicação 2:** Utilizando Javascript ES6 (ou TypeScript) com Vite como bundler.
 
-O candidato deverá desenvolver duas aplicações idênticas:
-- A primeira utilizando React (ou outro framework similar)
-- A segunda em Javascript ES6 puro (ou Typescript) com um bundler (Webpack, Vite, Rollup, etc) utilizando Babel.
+<br />
 
-A aplicação em React deverá ser armazenada em uma branch do repositório e a aplicação em Javascript puro deve ser armazenada em uma branch diferente
+## ⚙️ Como rodar o backend
 
-O layout e design da aplicação fica a critério do candidato (e serão critérios de avaliação), sendo necessário apenas preencher os requisitos descritos abaixo.
+Para rodar o backend em Docker, execute os seguintes comandos dentro da pasta `backend`:
 
-A entrega do teste deverá ser feita através de um único repositório git disponível publicamente. O candidato está livre para escolher o provedor que quiser (Gitlab, Github, Bitbucket, etc)
-
-## Requisitos da aplicação
-
-A aplicação deve ser composta por um formulário de cadastro com os campos descritos abaixo e um botão para submeter as informações:
-- **Nome**
-- **Email**
-- **Senha**
-- **Confirmação de senha**
-
-O formulário deverá ser validado com as regras descritas no próximo item. O usuário deverá ser notificado sobre os erros de validação do formulário.
-
-Alguns emails estão indisponíveis para cadastro por já estarem cadastrados, o usuário deve ser notificado sobre esses casos também.
-
-## Regras de validação do formulário
-
-A validação deve ser feita também no front-end, seguindo as seguintes regras:
-- **Nome:** Obrigatório
-- **Email:** Obrigatório; E-mail válido
-- **Senha:** Obrigatório; Mínimo de 8 caracteres; Mínimo de 1 caractere minusculo; Mínimo de 1 caractere maiúsculo; Mínimo de um numeral;
-- **Confirmação de senha:** Obrigatório; Deve ser idêntico ao campo **Senha**
-
-### Endereços e email indisponíveis
-- teste@exemplo.com
-- joao@exemplo.com
-- maria@acme.net
-
-## Interação com o back-end
-Todas as requisições enviadas para o back-end devem ser no formato JSON. Todas as requisições devem possuir um cabeçalho HTTP com nome _x-api-key_ com o seguinte valor: **ECA1AB4CE8583613A2C759B445E98**
-
-Não enviar a requisição em JSON ou com o cabeçalho de autenticação resultará em uma resposta com o código de status 4XX.
-
-Os nomes dos campos no corpo da requisição devem ser os seguintes:
-- **Nome:** nome
-- **Email:** email
-- **Senha:** senha
-- **Confirmação de senha:** confirmacaoSenha
-
-Ao enviar a requisição o back-end fará a validação dos campos, caso algum campo não passe na validação receberá um erro 400 com o seguinte corpo:
-```json
-{
-    "erro": true,
-    "tipoErro": "CAMPO_INVALIDO",
-    "nomeCampo": "<Nome do campo>"
-}
-```
-
-Ao enviar a requisição o back-end com um email indisponível receberá um erro 400 com o seguinte corpo:
-```json
-{
-    "erro": true,
-    "tipoErro": "USUARIO_EXISTENTE"
-}
-```
-
-## Como executar o servidor do back-end
-Para executar o servidor basta executar os seguintes comandos dentro da pasta _backend_
-```
+```bash
 docker build --tag 'backend_teste_tecnico' .
-```
-```
 docker run -p 8080:8080 backend_teste_tecnico
 ```
 
-O servidor estará disponível no endereço ``http://localhost:8080``
+O servidor estará disponível no endereço: http://localhost:8080.
+
+<br />
+
+## 🚀 Aplicações Desenvolvidas
+
+### 🖥️ Aplicação 1 - React
+
+Esta aplicação foi desenvolvida utilizando React para facilitar a criação de interfaces dinâmicas. O layout foi feito de forma responsiva e com foco na usabilidade.
+
+### Bibliotecas utilizadas:
+- **React:** Criação da interface e controle dos estados.
+- **Axios:** Para realizar as requisições HTTP ao backend.
+- **React Hook Form:** Para manipulação e validação dos dados do formulário.
+- **Toastify:** Para exibir notificações amigáveis ao usuário.
+- **Zod:** Para validação de dados do formulário.
+- **TypeScript:** Para adicionar tipagem estática ao projeto.
+- **Classnames:** Para manipulação condicional de classes CSS.
+- **Lucide-react:** Ícones usados na interface da aplicação.
+
+### 📂 Branch: `react-app`
+
+<br />
+
+### 🖥️ Aplicação 2 - Vite com TypeScript
+
+Nesta versão, utilizei Vite para criar um ambiente leve e rápido, aliado ao TypeScript e Babel, proporcionando tipagem estática, compatibilidade com versões mais antigas de JavaScript e segurança no desenvolvimento.
+
+### Ferramentas e bibliotecas utilizadas:
+- **Vite:** Ferramenta de build rápida e moderna.
+- **TypeScript:** Para uma codificação mais segura e tipada.
+- **Axios:** Para realizar as requisições HTTP ao backend.
+- **Babel:** Para garantir compatibilidade com diferentes navegadores.
+
+### 📂 Branch: `vite-vanilla-ts`
+
+<br />
+
+## 📝 Requisitos da Aplicação
+
+A aplicação consiste em um formulário de cadastro com os seguintes campos:
+
+- **Nome** (Obrigatório)
+- **Email** (Obrigatório, email válido)
+- **Senha** (Obrigatório, com pelo menos 8 caracteres, incluindo maiúsculas, minúsculas e números)
+- **Confirmação de senha** (Obrigatório, deve ser idêntico ao campo "Senha")
+
+A validação é feita no front-end e há notificações para os seguintes casos:
+
+- Campos obrigatórios não preenchidos.
+- Emails indisponíveis para cadastro: `teste@exemplo.com`, `joao@exemplo.com`, `maria@acme.net`.
+
+<br />
+
+## 🎯 Como executar
+
+> **Observação:** Antes de testar as aplicações frontend, certifique-se de que o Docker está em execução com o backend.
+
+<br />
+
+**1. Clone o repositório:**
+
+```bash
+git clone https://github.com/seu-repositorio/teste-nitronews.git
+```
+
+<br />
+
+**2. Instale as dependências e execute as aplicações nas branches apropriadas:**
+
+- Para a aplicação React (Branch: `react-app`):
+
+```bash
+cd NitroNews-Challenge
+git checkout react-app
+cd frontend
+npm install
+npm run dev
+```
+
+- Para a aplicação Vanilla (Branch: `vite-vanilla-ts`):
+
+```bash
+cd NitroNews-Challenge
+git checkout vite-vanilla-ts
+cd frontend
+npm install
+npm run dev
+```
+
+<br />
+
+## 📧 Contato
+
+- **Email:** leonardo.leal202@gmail.com
+- **LinkedIn:** [leohdev](https://www.linkedin.com/in/leohdev/)
