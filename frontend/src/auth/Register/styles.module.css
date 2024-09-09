@@ -1,0 +1,132 @@
+main {
+  background: var(--gray);
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.register-form-container {
+  width: 580px;
+  background: var(--white);
+  padding: 6rem;
+  border-radius: 1rem 0 0 1rem;
+}
+
+.register-form-title {
+  margin-bottom: 0.5rem;
+  font-size: 2.25rem;
+}
+
+.register-form-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+}
+
+.register-hero {
+  width: 580px;
+  border-radius: 0 1rem 1rem 0;
+  background: var(--blue);
+  padding: 1rem;
+}
+
+.register-hero-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 3rem;
+  gap: 3rem;
+}
+
+.register-hero-title {
+  color: var(--white);
+  line-height: 1.2;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.register-hero-subtitle {
+  color: var(--text-tertiary)
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.register-form-group {
+  position: relative;
+}
+
+.register-form-error,
+.register-form-info {
+  position: absolute;
+  font-size: 0.8rem;
+  margin: 0.1rem 0;
+}
+
+.register-form-error {
+  color: var(--error);
+}
+
+.register-form button {
+  margin-top: 1.8rem;
+}
+
+.register-form-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  animation: loader 1s linear infinite;
+}
+
+@media screen and (max-width: 1200px) {
+  .register-container {
+    grid-template-columns: 1fr;
+    width: 80%;
+    height: 100dvh;
+  }
+
+  .register-hero {
+    display: none;
+  }
+
+  .register-form-container {
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .register-container {
+    grid-template-columns: 1fr;
+    width: 100%;
+    height: 100dvh;
+  }
+
+  .register-form-container {
+    padding: 2rem;
+  }
+}
+
+@keyframes loader {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
