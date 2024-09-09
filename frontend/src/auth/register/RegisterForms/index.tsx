@@ -1,4 +1,4 @@
-import { registerSchema, type RegisterSchema } from "./validationSchema"
+import { registerSchema, type RegisterSchema } from "./ValidationSchema"
 import { CircleUser, LoaderCircle, Lock, LockKeyhole, Mail } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
