@@ -1,11 +1,13 @@
 import { registerSchema, type RegisterSchema } from "./validationSchema"
-import { CircleUser, LoaderCircle, Lock, LockKeyhole, Mail} from "lucide-react"
+import { CircleUser, LoaderCircle, Lock, LockKeyhole, Mail } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
-import { registerUser } from "../../../services/auth-service"
-import AuthInput from "../../../components/auth-input"
-import Button from "../../../components/button"
+import { registerUser } from "../../../services/auth"
+import AuthInput from "../../../components/AuthInput"
+import Button from "../../../components/Button"
+
+import Toastify from 'toastify-js'
 
 import Styles from "./styles.module.css"
 
@@ -25,9 +27,17 @@ export default function RegisterForm() {
           alert("Conta criada com sucesso!")
           setUserExists('')
         })
-        .catch(error => { 
-          if (error.response.data.tipoErro === "USUARIO_EXISTENTE") {
+        .catch(error => {
+          if (error.response && error.response.data && error.response.data.tipoErro === "USUARIO_EXISTENTE") {
             setUserExists('Já existe uma conta com esse e-mail. Tente outro.')
+          } else {
+            Toastify({
+              text: "Erro inesperado. Por favor, tente novamente mais tarde!",
+              className: "error",
+              style: {
+                background: "var(--error)",
+              }
+            }).showToast();
           }
         });
       setIsLoading(false)
@@ -40,47 +50,47 @@ export default function RegisterForm() {
   return (
     <form onSubmit={handleSubmit(handleRegister)} className={Styles["register-form"]}>
       <div className={Styles["register-form-group"]}>
-        <AuthInput 
+        <AuthInput
           icon={<CircleUser size={22} />}
           placeholder="Nome"
           error={!!errors.nome}
-          {...register("nome", { onBlur: () => trigger("nome") })} 
+          {...register("nome", { onBlur: () => trigger("nome") })}
         />
-        {errors.nome && 
+        {errors.nome &&
           <span className={Styles["register-form-error"]}>{errors.nome.message}</span>}
       </div>
       <div className={Styles["register-form-group"]}>
-        <AuthInput 
-          icon={<Mail size={22} />} 
-          placeholder="Email" 
+        <AuthInput
+          icon={<Mail size={22} />}
+          placeholder="Email"
           error={!!errors.email || !!userExists}
           onFocus={() => setUserExists('')}
-          {...register("email", { onBlur: () => trigger("email") })} 
+          {...register("email", { onBlur: () => trigger("email") })}
         />
-        {(errors.email || userExists) && 
+        {(errors.email || userExists) &&
           <span className={Styles["register-form-error"]}>{errors.email?.message || userExists}</span>}
       </div>
       <div className={Styles["register-form-group"]}>
-        <AuthInput 
-          icon={<Lock size={22} />} 
-          placeholder="Senha" 
+        <AuthInput
+          icon={<Lock size={22} />}
+          placeholder="Senha"
           error={!!errors.senha}
           isPassword
-          {...register("senha", { onBlur: () => trigger("senha") }) } 
+          {...register("senha", { onBlur: () => trigger("senha") })}
         />
         {errors.senha &&
           <span className={Styles["register-form-error"]}>{errors.senha.message}</span>
         }
       </div>
       <div className={Styles["register-form-group"]}>
-        <AuthInput 
-          icon={<LockKeyhole size={22} />} 
-          placeholder="Confirmar Senha" 
+        <AuthInput
+          icon={<LockKeyhole size={22} />}
+          placeholder="Confirmar Senha"
           error={!!errors.confirmacaoSenha}
           isPassword
-          {...register("confirmacaoSenha", { onBlur: () => trigger("confirmacaoSenha") }) } 
+          {...register("confirmacaoSenha", { onBlur: () => trigger("confirmacaoSenha") })}
         />
-        {errors.confirmacaoSenha && 
+        {errors.confirmacaoSenha &&
           <span className={Styles["register-form-error"]}>{errors.confirmacaoSenha.message}</span>}
       </div>
 

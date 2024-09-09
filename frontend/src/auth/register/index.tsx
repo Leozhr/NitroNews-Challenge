@@ -1,5 +1,5 @@
 import Styles from "./styles.module.css"
-import RegisterForm from "./register-form"
+import RegisterForm from "./RegisterForms"
 
 import storyset from "../../assets/rafiki.webp"
 
@@ -24,7 +24,7 @@ export default function RegisterAccount() {
             <div>
               <h1 className={Styles["register-hero-title"]}>Simplifique o Email Marketing da sua Empresa</h1>
               <p className={Styles["register-hero-subtitle"]}>
-                Plataforma prática de email marketing que permite criar, automatizar e acompanhar campanhas de forma eficiente, 
+                Plataforma prática de email marketing que permite criar, automatizar e acompanhar campanhas de forma eficiente,
                 ideal para empresas que buscam melhorar a comunicação com seus clientes.
               </p>
             </div>
