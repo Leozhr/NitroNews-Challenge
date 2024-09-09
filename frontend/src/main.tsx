@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import RegisterAccount from './auth/Register'
+import RegisterAccount from './auth/register'
 
 import './styles/globals.css'
 
