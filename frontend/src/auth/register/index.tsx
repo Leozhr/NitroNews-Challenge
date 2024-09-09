@@ -1,5 +1,5 @@
 import Styles from "./styles.module.css"
-import RegisterForm from "./RegisterForms"
+import RegisterForm from "../register/forms"
 
 import storyset from "../../assets/rafiki.webp"
 

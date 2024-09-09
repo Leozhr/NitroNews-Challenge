@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
 import { registerUser } from "../../../services/auth"
-import AuthInput from "../../../components/AuthInput"
-import Button from "../../../components/Button"
+import AuthInput from "../../../components/auth-input"
+import Button from "../../../components/button"
 
 import Toastify from 'toastify-js'
 
